@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM on Abbas Portfolio</title>
-    <link>http://localhost:52751/tags/llm/</link>
+    <link>http://localhost:60488/tags/llm/</link>
     <description>Recent content in LLM on Abbas Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>abbas.bdr@hotmail.com (Abbas M. Badreddine)</managingEditor>
     <webMaster>abbas.bdr@hotmail.com (Abbas M. Badreddine)</webMaster>
     <copyright>© 2026 Abbas M. Badreddine</copyright>
-    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:52751/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:60488/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI Assistants vs AI Agents: What Developers Should Know</title>
-      <link>http://localhost:52751/blog/ai-assistants-vs-ai-agents/</link>
+      <link>http://localhost:60488/blog/ai-assistants-vs-ai-agents/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
       <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
-      <guid>http://localhost:52751/blog/ai-assistants-vs-ai-agents/</guid>
+      <guid>http://localhost:60488/blog/ai-assistants-vs-ai-agents/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Retrieval-Augmented Generation: Making LLMs Useful With Your Own Data</title>
-      <link>http://localhost:52751/blog/retrieval-augmented-generation/</link>
+      <link>http://localhost:60488/blog/retrieval-augmented-generation/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
       <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
-      <guid>http://localhost:52751/blog/retrieval-augmented-generation/</guid>
+      <guid>http://localhost:60488/blog/retrieval-augmented-generation/</guid>
       <description></description>
       
     </item>

@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Abbas Portfolio</title>
-    <link>http://localhost:52751/categories/</link>
+    <link>http://localhost:60488/categories/</link>
     <description>Recent content in Categories on Abbas Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>abbas.bdr@hotmail.com (Abbas M. Badreddine)</managingEditor>
     <webMaster>abbas.bdr@hotmail.com (Abbas M. Badreddine)</webMaster>
     <copyright>© 2026 Abbas M. Badreddine</copyright>
-    <atom:link href="http://localhost:52751/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:60488/categories/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
