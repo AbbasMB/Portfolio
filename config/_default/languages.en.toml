@@ -16,7 +16,7 @@ title = "Abbas Portfolio"
 
  [params.author]
    name = "Abbas M. Badreddine"
-#   email = "youremail@example.com"
+     email = "abbas.bdr@hotmail.com"
    image = "img/abbas.jpg"
 #   imageQuality = 96
 #   headline = "I'm only human"
@@ -35,7 +35,7 @@ title = "Abbas Portfolio"
 #     { facebook = "https://facebook.com/username" },
 #     { flickr = "https://www.flickr.com/photos/username/" },
 #     { foursquare = "https://foursquare.com/username" },
-#     { github = "https://github.com/username" },
+     { github = "https://github.com/AbbasMB" },
 #     { gitlab = "https://gitlab.com/username" },
 #     { google = "https://www.google.com/" },
 #     { hashnode = "https://username.hashnode.dev" },

@@ -2,49 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Abbas Portfolio</title>
-    <link>https://www.abbasmb.dk/tags/</link>
+    <link>http://localhost:59063/tags/</link>
     <description>Recent content in Tags on Abbas Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <managingEditor>abbas.bdr@hotmail.com (Abbas M. Badreddine)</managingEditor>
+    <webMaster>abbas.bdr@hotmail.com (Abbas M. Badreddine)</webMaster>
     <copyright>© 2026 Abbas M. Badreddine</copyright>
-    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://www.abbasmb.dk/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:59063/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI</title>
-      <link>https://www.abbasmb.dk/tags/ai/</link>
+      <link>http://localhost:59063/tags/ai/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.abbasmb.dk/tags/ai/</guid>
+      <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
+      <guid>http://localhost:59063/tags/ai/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>LLM</title>
-      <link>https://www.abbasmb.dk/tags/llm/</link>
+      <link>http://localhost:59063/tags/llm/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.abbasmb.dk/tags/llm/</guid>
+      <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
+      <guid>http://localhost:59063/tags/llm/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://www.abbasmb.dk/tags/machine-learning/</link>
+      <link>http://localhost:59063/tags/machine-learning/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.abbasmb.dk/tags/machine-learning/</guid>
+      <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
+      <guid>http://localhost:59063/tags/machine-learning/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>RAG</title>
-      <link>https://www.abbasmb.dk/tags/rag/</link>
+      <link>http://localhost:59063/tags/rag/</link>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.abbasmb.dk/tags/rag/</guid>
+      <author>abbas.bdr@hotmail.com (Abbas M. Badreddine)</author>
+      <guid>http://localhost:59063/tags/rag/</guid>
       <description></description>
       
     </item>

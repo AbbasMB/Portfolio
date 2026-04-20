@@ -1,4 +1,4 @@
 ---
 title: "Abbas Portfolio"
 ---
-Velkommen til min portfolio
+Welcome to my portfolio
