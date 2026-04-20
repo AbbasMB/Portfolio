@@ -433,8 +433,11 @@ title: "About"
       <div class="tech-box">
         <h3>AI and Data</h3>
         <ul class="tech-tags">
+          <li>Business Intelligence</li>
           <li>PowerBI</li>
           <li>Jupyter Notebook</li>
+          <li>Data Analysis</li>
+          <li>Data Visualization</li>
           <li>Machine Learning</li>
         </ul>
       </div>
