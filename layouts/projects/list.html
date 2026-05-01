@@ -42,7 +42,7 @@
           <a
             href="{{ $target }}"
             {{ if $isExternal }}target="_blank" rel="external noopener noreferrer"{{ end }}
-            class="not-prose block">
+            class="not-prose block cursor-pointer">
             <span class="sr-only">{{ $page.Title }}</span>
             {{ with $featuredURL }}
               <div class="flex-none relative overflow-hidden thumbnail_card bg-neutral-50 dark:bg-neutral-800">
@@ -51,7 +51,7 @@
                   alt="{{ $page.Title }}"
                   loading="lazy"
                   decoding="async"
-                  class="absolute inset-0 w-full h-full object-contain">
+                  class="nozoom absolute inset-0 w-full h-full object-contain cursor-pointer">
               </div>
             {{ else }}
               <div class="p-4 text-xl font-bold text-neutral-800 dark:text-neutral">
