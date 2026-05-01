@@ -42,6 +42,7 @@ jobs:
 
           DIFY_BASE_URL="${DIFY_BASE_URL%/}"
           DIFY_BASE_URL="${DIFY_BASE_URL%/v1}"
+          DIFY_API_KEY="$(printf '%s' "${DIFY_API_KEY}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/^Bearer[[:space:]]\+//' -e 's/^"//' -e 's/"$//' -e "s/^'//" -e "s/'$//")"
 
           case "${DIFY_BASE_URL}" in
             https://cloud.dify.ai|https://udify.app|https://*.udify.app)
@@ -51,6 +52,7 @@ jobs:
           esac
 
           echo "Using Dify API base URL: ${DIFY_BASE_URL}"
+          echo "DIFY_API_KEY is set after normalization."
 
           echo "Deleting existing Dify documents..."
           page=1
