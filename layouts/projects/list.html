@@ -1,0 +1,66 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  <header>
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/list.html" (dict "context" . "scope" "single") }}
+    </div>
+  </header>
+
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
+      {{ .Content }}
+    </div>
+  </section>
+
+  {{ if gt .Pages 0 }}
+    <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      {{ range .Pages.ByWeight }}
+        {{ $page := . }}
+        {{ $target := .RelPermalink }}
+        {{ $isExternal := false }}
+        {{ with .Params.externalUrl }}
+          {{ $target = . }}
+          {{ $isExternal = true }}
+        {{ end }}
+
+        {{ $featuredURL := "" }}
+        {{ with .Params.featureimage }}
+          {{ with resources.Get . }}
+            {{ $featuredURL = .RelPermalink }}
+            {{ if ne .MediaType.SubType "svg" }}
+              {{ $featuredURL = (.Resize "600x").RelPermalink }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        <article class="relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
+          <a
+            href="{{ $target }}"
+            {{ if $isExternal }}target="_blank" rel="external noopener noreferrer"{{ end }}
+            class="not-prose block">
+            <span class="sr-only">{{ $page.Title }}</span>
+            {{ with $featuredURL }}
+              <div class="flex-none relative overflow-hidden thumbnail_card bg-neutral-50 dark:bg-neutral-800">
+                <img
+                  src="{{ . }}"
+                  alt="{{ $page.Title }}"
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 w-full h-full object-contain">
+              </div>
+            {{ else }}
+              <div class="p-4 text-xl font-bold text-neutral-800 dark:text-neutral">
+                {{ $page.Title | emojify }}
+              </div>
+            {{ end }}
+          </a>
+        </article>
+      {{ end }}
+    </section>
+  {{ end }}
+{{ end }}

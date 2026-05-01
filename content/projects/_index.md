@@ -5,4 +5,4 @@ groupByYear: false
 orderByWeight: true
 ---
 
-Her finder du mine projekter.
+Here you can find my projects, which I developed during my studies in Computer Science.
