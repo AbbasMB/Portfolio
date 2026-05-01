@@ -3,36 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:61644/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:61644/blog/automating-rag-workflows/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:61644/blog/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:61644/blog/using-a-code-agent-as-a-developer/</loc>
+    <lastmod>2026-05-01T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:61644/blog/ai-assistants-vs-ai-agents/</loc>
     <lastmod>2026-04-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blog/ai-assistants-vs-ai-agents/</loc>
+    <loc>http://localhost:61644/blog/retrieval-augmented-generation/</loc>
     <lastmod>2026-04-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:61644/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blog/retrieval-augmented-generation/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/about/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/projects/</loc>
+    <loc>http://localhost:61644/projects/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
