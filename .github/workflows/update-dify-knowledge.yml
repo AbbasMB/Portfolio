@@ -1,0 +1,45 @@
+name: Update Dify Knowledge
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-dify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build portfolio knowledge
+        run: node scripts/build-portfolio-knowledge.js
+
+      - name: Update Dify Knowledge
+        env:
+          DIFY_API_KEY: ${{ secrets.DIFY_API_KEY }}
+          DIFY_BASE_URL: ${{ secrets.DIFY_BASE_URL }}
+          DIFY_DATASET_ID: ${{ secrets.DIFY_DATASET_ID }}
+          DIFY_DOCUMENT_ID: ${{ secrets.DIFY_DOCUMENT_ID }}
+        run: |
+          TEXT=$(jq -Rs . < dist/portfolio-knowledge.txt)
+
+          curl --fail --request POST \
+            --url "$DIFY_BASE_URL/datasets/$DIFY_DATASET_ID/documents/$DIFY_DOCUMENT_ID/update-by-text" \
+            --header "Authorization: Bearer $DIFY_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data "{
+              \"name\": \"Abbas Portfolio Auto Knowledge\",
+              \"text\": $TEXT,
+              \"indexing_technique\": \"high_quality\",
+              \"process_rule\": {
+                \"mode\": \"automatic\"
+              }
+            }"
