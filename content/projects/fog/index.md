@@ -7,7 +7,7 @@ weight: 10
 showDate: false
 showReadingTime: false
 showWordCount: false
-_build:
+build:
   render: "false"
   list: "local"
 ---
