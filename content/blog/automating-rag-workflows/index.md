@@ -1,159 +1,68 @@
 ---
-title: "Automating RAG Workflows: Keeping Your AI Knowledge Always Updated"
+title: "Automatisering af RAG-workflows"
 date: 2026-05-01
 draft: false
-tags: ["AI", "Automation", "Development"]
+tags: ["AI", "Automatisering", "Udvikling"]
 ---
 
-# Automating RAG Workflows: Keeping Your AI Knowledge Always Updated
+# Automatisering af RAG-workflows
 
-Imagine you built a chatbot for your portfolio site and it works perfectly on day one.
+## Emnet
 
-It knows your projects, your background, and the articles you wrote last week. Then you publish a new blog post, update a project, or change a section on your About page. The chatbot still answers with the old information because nobody refreshed its knowledge.
+Et RAG-workflow handler om at give en AI-model adgang til opdateret viden. RAG står for Retrieval-Augmented Generation, og ideen er, at modellen først henter relevant information og derefter svarer ud fra den information.
 
-That is the problem with static knowledge in a RAG system. The model is only as good as the data it sees, and if the data is outdated, the answers will be outdated too.
+Problemet er, at viden hurtigt kan blive forældet. Hvis man for eksempel har en chatbot på sin portfolio, skal den kende de nyeste projekter, blogindlæg og ændringer på siden.
 
-## What Is a RAG Workflow?
+Hvis man selv skal opdatere chatbotten hver gang, bliver det nemt glemt. Derfor giver det mening at automatisere processen.
 
-A RAG workflow is the pipeline that keeps a retrieval-augmented generation system fed with fresh content.
-
-Instead of manually copying content into a chatbot knowledge base every time something changes, the workflow takes care of it for you. It reads source files, cleans them, prepares them for retrieval, and updates the knowledge file or index on a schedule or on every push.
-
-Think of it like a content sync job. The website changes, the knowledge layer follows.
-
-## Why Static Knowledge Becomes a Problem
-
-At first, a static knowledge file feels simple. You export your content once, point the chatbot at it, and you are done.
-
-The problem is that websites do not stay still. Developers fix typos, add case studies, rewrite summaries, and publish new posts. If the chatbot is not updated at the same pace, it starts drifting away from the real site.
-
-That creates a few obvious issues.
-
-The chatbot may answer with old project descriptions.
-
-It may miss a newly published article.
-
-It may quote text that was removed weeks ago.
-
-And from a user point of view, that is worse than not having a chatbot at all, because the answer sounds confident while being wrong.
-
-## How Automation Solves It
-
-Automation fixes the boring part of the process.
-
-Instead of relying on a manual export, the workflow watches for changes, rebuilds the knowledge file, and ships it together with the site. That means the content source and the chatbot source stay aligned.
-
-The idea is simple:
-
-1. Read the markdown files from the content folder.
-2. Clean the files so they contain only useful text.
-3. Write the result to a public knowledge file inside `static/`.
-4. Run the Hugo build.
-5. Deploy the site.
-
-That is a very normal developer workflow. It is just automation applied to content instead of code.
-
-## How It Works Step by Step
-
-### 1. The Repository Changes
-
-A developer edits a blog post, updates a project page, or changes the About page.
-
-### 2. GitHub Actions Triggers
-
-When the change lands on `main`, GitHub Actions starts the workflow.
-
-### 3. The Knowledge File Is Generated
-
-Before Hugo builds the site, the workflow reads the markdown files and extracts only the parts that matter. Useful front matter like title, summary, date, tags, and external links can be kept. Decorative HTML, styles, and raw markup should be removed.
-
-The result is a clean file that a chatbot can actually use.
-
-### 4. Hugo Builds the Site
-
-Because the file lives in `static/`, Hugo copies it into the final `public/` output automatically.
-
-### 5. GitHub Pages Deploys the Result
-
-The deployed site now includes both the normal pages and the knowledge file. The chatbot can fetch the updated text from the published URL.
-
-## Architecture Overview
-
-A practical setup has a few moving parts.
-
-### Source Content
-
-The source of truth is the markdown inside your Hugo `content/` folder. That is where the real website content lives.
-
-### Generator Script
-
-A small script reads those files and produces a text version for retrieval. This is where you clean out HTML, style blocks, and anything that would confuse the chatbot.
-
-### Static Output
-
-The generated knowledge file lives in `static/knowledge/portfolio-knowledge.txt`. Hugo publishes it like any other static asset.
-
-### Chatbot Embed
-
-The chatbot front-end points to the public knowledge URL. When the file updates, the chatbot sees the new content without needing a manual sync step.
-
-Here is the basic flow:
+Et simpelt workflow kan se sådan ud:
 
 ```text
-content/*.md
-    -> knowledge generator
-    -> static/knowledge/portfolio-knowledge.txt
+Markdown-filer
+    -> generator-script
+    -> knowledge file
     -> Hugo build
-    -> GitHub Pages
-    -> chatbot reads updated content
+    -> deploy
 ```
 
-## Example: GitHub Actions Updating a Chatbot Knowledge File
+## Hvorfor er det nyttigt?
 
-Let’s say you publish a new project post about a chatbot integration.
+Det er nyttigt, fordi chatbotten bliver holdt opdateret uden manuelt arbejde.
 
-Without automation, you would need to remember to export the content, clean it, and upload it somewhere the chatbot can read.
+Hvis jeg ændrer et blogindlæg eller tilføjer et nyt projekt, skal chatbotten helst kunne svare ud fra det nye indhold. Ellers kan den give svar, der lyder rigtige, men som faktisk er forældede.
 
-With automation, the workflow does it for you.
+Automatisering gør også løsningen mere stabil. I stedet for at huske en manuel eksport kan man lade GitHub Actions eller et andet workflow generere vidensfilen automatisk, når der pushes ændringer.
 
-```yaml
-- name: Generate portfolio knowledge file
-  run: bash .github/scripts/generate-knowledge.sh
+Det gør AI-delen mere troværdig, fordi den følger med det rigtige indhold på sitet.
 
-- name: Build the site
-  run: hugo build --gc --minify
-```
+## Hvor kan man bruge det?
 
-That is the useful part. The build is not just making HTML. It is also refreshing the AI knowledge layer.
+Et automatiseret RAG-workflow kan bruges mange steder, hvor indhold ændrer sig løbende.
 
-If the workflow is set up well, the chatbot can answer with the latest project list, newest article titles, and current descriptions right after deployment.
+Det kan for eksempel være:
 
-## What I Learned
+1. En portfolio-chatbot.
+2. En intern supportbot.
+3. Dokumentation for et produkt.
+4. En vidensbase til kundeservice.
+5. Et intranet med ofte opdaterede informationer.
 
-The biggest thing I learned is that RAG is not only about retrieval. It is also about maintenance.
+I mit tilfælde giver det især mening på en portfolio. Hvis en besøgende spørger chatbotten om mine projekter, skal den svare ud fra det indhold, der faktisk ligger på siden.
 
-If the knowledge source is messy, the chatbot becomes messy. If the knowledge source is stale, the chatbot becomes stale. So the quality of the workflow matters just as much as the quality of the model prompt.
+## Hvad har jeg lært?
 
-I also learned that the best automation is usually the boring kind. No complex orchestration is needed here. A small script, a clean static file, and a build step are often enough.
+Jeg har lært, at RAG ikke kun handler om AI. Det handler også om data og vedligeholdelse.
 
-That is good news for developers, because it means you can build something useful without overengineering it.
+Hvis inputtet er rodet, bliver svarene også dårligere. Markdown-filer kan indeholde front matter, HTML, kodeblokke og andet, som ikke nødvendigvis er godt for en chatbot. Derfor skal indholdet renses, før det bruges som knowledge file.
 
-## Challenges and Trade-Offs
+Jeg har også lært, at simple workflows ofte er nok. Man behøver ikke starte med en stor database eller en kompliceret pipeline. Til en portfolio kan et script og en statisk tekstfil være en fin løsning.
 
-The first challenge is cleaning the input well enough. Markdown files often contain front matter, raw HTML, code blocks, embedded components, and content meant for browsers rather than chatbots.
+Det vigtigste er, at kilden til viden og chatbotten ikke kommer ud af sync.
 
-If you pass all of that directly into a knowledge file, retrieval quality drops fast.
+## Konklusion
 
-Another trade-off is freshness versus complexity. A full sync pipeline can get complicated if you try to handle every edge case. For a small portfolio, a simple workflow may be the better choice.
+Automatisering af RAG-workflows er nyttigt, fordi det holder AI-systemets viden opdateret.
 
-There is also a practical question about what to keep. Not every piece of metadata belongs in the chatbot. Useful fields like title, summary, date, tags, and externalUrl can help. Visual markup and layout code usually should not.
+For mig er den største læring, at AI-løsninger også kræver helt almindelig softwaredisciplin. Data skal være rene, processen skal kunne gentages, og systemet skal være nemt at vedligeholde.
 
-## Conclusion
-
-Automating a RAG workflow turns a chatbot from a one-time setup into a living part of the site.
-
-The main idea is straightforward: keep the knowledge source close to the content source, update it automatically, and publish it with the rest of the site.
-
-For a developer portfolio, that is a strong pattern because it keeps the chatbot honest. It does not have to guess what your site says. It can read the same content your visitors see.
-
-That is the real value of automation here. It saves time, reduces drift, and makes the chatbot feel like part of the product instead of a separate toy.
+En chatbot bliver først rigtig brugbar, når den svarer ud fra det indhold, der faktisk er aktuelt.
